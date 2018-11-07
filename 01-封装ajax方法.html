@@ -1,0 +1,40 @@
+<!-- 强调的是 封装回调函数 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+        *setTimeout
+        *readFile
+        *writeFile
+        *readdir
+        *ajax
+        往往异步 API 都伴随有一个回调函数
+        $.get('dadada',function(){})
+        */
+        function get(url,callback) {
+            var xhr = new XMLHttpRequest()
+            xhr.onload = function () {
+                callback(xhr.responseText)
+            }
+            xhr.open('get', "url", true)
+            xhr.send()
+
+        }
+        get('data.json',function(data){
+            console.log(data);
+        })
+    </script>
+</body>
+<!-- 必须用http打开 -->
+<!-- 缓存问题 -->
+
+</html>
