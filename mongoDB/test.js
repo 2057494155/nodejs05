@@ -16,7 +16,7 @@ for (var i = 0; i < 100; i++) {
   var kitty = new Cat({name: '妙啊 * ' + i})
   //   实例化一个Cat
 
-  kitty.save(function (err) {
+  kitty.save(function (err) { 
     if (err) {
       console.log(err)
     }else {

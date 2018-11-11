@@ -1,0 +1,95 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+ pGet('daada')
+    .then(function(data){
+        console.log(data);
+    })
+
+function get(url){
+    return new Promise (function(resolve,reject){
+        var oReq = new XMLHttpRequest()
+        oReq.onload = function(){
+            resolve(oReq.responseText)
+        }
+        oReq.onerror = function(err){
+            reject(err)
+        }
+        oReq.open("get",url,true)
+        oReq.send()
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function pGet(url){
+    return new Promise(function(resolve,reject){
+        var oReq = new XMLHttpRequest()
+        //当请求加载成功之后 要调用指定的函数
+        oReq.onload = function(){
+            //现在需要得到这里的 oReq.responseText
+            resolve(JSON.parse(oReq.responseText))
+        }
+        oReq.onerror = function(err){
+            reject(err)
+        }
+    })
+    oReq.open("get",url,true)
+    oReq.send()
+}
+</script>
